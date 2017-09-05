@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[wjw'blog]]></title>
+  <link href="https://wjw19854.github.io/atom.xml" rel="self"/>
+  <link href="https://wjw19854.github.io/"/>
+  <updated>2017-09-05T14:07:00+08:00</updated>
+  <id>https://wjw19854.github.io/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://www.coderforart.com/">CoderForArt</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[我是如何创建这个博客]]></title>
+    <link href="https://wjw19854.github.io/15045365494367.html"/>
+    <updated>2017-09-04T22:49:09+08:00</updated>
+    <id>https://wjw19854.github.io/15045365494367.html</id>
+    <content type="html"><![CDATA[
+<p>最近越来越忙,发现自己的时间越来越少,忙的时候也发现自己还有好多不会的东西,就像找个地方记录一下自己学习的东西,找了很多东西,hexo,hekyll等等.最后发现有个国产markdown笔记软件.支持生成静态网站,就打算拿来试试了</p>
+
+<p><img src="media/15045365494367/15045375120206.jpg" alt="截图"/></p>
+
+<h2 id="toc_0">评论系统</h2>
+
+<p>评论系统国内的的多说已经关闭.看了知乎上的讨论,最后选择了韩国的来比力</p>
+
+]]></content>
+  </entry>
+  
+</feed>
