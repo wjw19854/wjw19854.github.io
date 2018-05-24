@@ -122,7 +122,7 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
-				<time datetime="2017-09-04T22:49:09+08:00" itemprop="datePublished">2017/9/4</time>
+				<time datetime="2018-05-24T08:04:36+08:00" itemprop="datePublished">2018/5/24</time>
 			</div>
 			<div class="tags">posted in 
 			
@@ -130,19 +130,18 @@
 			 
 			</div>
 		</div>
-		<h1 class="title" itemprop="name"><a href="15045365494367.html" itemprop="url">
-		我是如何创建这个博客</a></h1>
+		<h1 class="title" itemprop="name"><a href="15271202760078.html" itemprop="url">
+		Macbook mds 进程占用CPU问题</a></h1>
 		<div class="entry-content" itemprop="articleBody">
 			
-			<p>最近越来越忙,发现自己的时间越来越少,忙的时候也发现自己还有好多不会的东西,就像找个地方记录一下自己学习的东西,找了很多东西,hexo,hekyll等等.最后发现有个国产markdown笔记软件.支持生成静态网站,就打算拿来试试了</p>
+			<p>经查是Spotlight的索引进程.如果平时不用Spotlight 可以禁用掉.<br/>
+禁用命令:</p>
 
-<p><img src="media/15045365494367/15045375120206.jpg" alt="截图"/></p>
-
-<h2 id="toc_0">评论系统</h2>
-
-<p>评论系统国内的的多说已经关闭.看了知乎上的讨论,最后选择了韩国的来比力</p>
-
-<p><img src="media/15045365494367/15045969883364.jpg" alt=""/></p>
+<pre><code># 禁用
+sudo mdutil -a -i off
+# 启用
+sudo mdutil -a -i on
+</code></pre>
 
 
 			
