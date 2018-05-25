@@ -4,7 +4,7 @@
   <title><![CDATA[wjw'blog]]></title>
   <link href="https://wjw19854.github.io/atom.xml" rel="self"/>
   <link href="https://wjw19854.github.io/"/>
-  <updated>2018-05-24T08:25:19+08:00</updated>
+  <updated>2018-05-25T09:51:33+08:00</updated>
   <id>https://wjw19854.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于cx_oracle TypeError: expecting string, unicode or buffer object 错误的解决]]></title>
+    <link href="https://wjw19854.github.io/15272123098116.html"/>
+    <updated>2018-05-25T09:38:29+08:00</updated>
+    <id>https://wjw19854.github.io/15272123098116.html</id>
+    <content type="html"><![CDATA[
+<p>最近用cx_oracle插入数据的时候发现会报这个错误.一开始以为是数据的问题.费劲把插入报错的数据找到后.发现单条插入没有问题.所以怀疑是cx_oracle的bug.<br/>
+一开始报错的版本是5.2.1,后来发现5.x都会报这个错.而6.x会报另外一个错误.这里暂且不提.</p>
+
+<p>最终修复的方式是捕获错误尝试单条插入.下面的代码比较粗放仅供参考</p>
+
+<pre><code>        for rows in insert_data.get_data_itera(5000, empty_string_as_None=empty_string_as_None):
+            row_count = len(rows)
+            try:
+                target_cur.executemany(insert_sql, rows)
+                target_conn.commit()
+                total_count += row_count
+            except Exception,e:
+                target_conn.rollback()
+                logging.info(u&#39;批量插入报错,尝试单条插入&#39;)
+                row_count = 1
+                for row in rows:
+                    target_cur.executemany(insert_sql,[row,])
+                    total_count += row_count
+                target_conn.commit()
+
+
+            logging.info(
+                u&quot;插入 {row_num} 条数据,已插入{total_count}条记录&quot;.format(
+                    row_num=str(row_count),
+                    total_count=str(total_count)))```
+
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Macbook mds 进程占用CPU问题]]></title>
