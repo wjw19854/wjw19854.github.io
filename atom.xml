@@ -4,7 +4,7 @@
   <title><![CDATA[wjw'blog]]></title>
   <link href="https://wjw19854.github.io/atom.xml" rel="self"/>
   <link href="https://wjw19854.github.io/"/>
-  <updated>2018-05-25T09:51:33+08:00</updated>
+  <updated>2018-05-25T09:52:08+08:00</updated>
   <id>https://wjw19854.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -29,22 +29,18 @@
             try:
                 target_cur.executemany(insert_sql, rows)
                 target_conn.commit()
-                total_count += row_count
             except Exception,e:
                 target_conn.rollback()
-                logging.info(u&#39;批量插入报错,尝试单条插入&#39;)
-                row_count = 1
+                logging.info(u&#39;批量插入报错,回滚并尝试单条插入&#39;)
                 for row in rows:
                     target_cur.executemany(insert_sql,[row,])
-                    total_count += row_count
                 target_conn.commit()
-
-
+            total_count += row_count
             logging.info(
                 u&quot;插入 {row_num} 条数据,已插入{total_count}条记录&quot;.format(
                     row_num=str(row_count),
-                    total_count=str(total_count)))```
-
+                    total_count=str(total_count)))
+                    
 </code></pre>
 
 ]]></content>
