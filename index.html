@@ -122,6 +122,73 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-07-09T14:23:41+08:00" itemprop="datePublished">2018/7/9</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='mweb.html'>mweb</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="15311174213941.html" itemprop="url">
+		Centos7 安装kudu python客户端</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h3 id="toc_0">安装kudu的官方源</h3>
+
+<pre><code class="language-bash">cd /etc/yum.repos.d/
+
+wget http://archive.cloudera.com/kudu/redhat/7/x86_64/kudu/cloudera-kudu.repo
+
+yum update
+
+</code></pre>
+
+<h3 id="toc_1">安装系统依赖</h3>
+
+<pre><code class="language-bash">sudo yum install kudu                         # Base Kudu files
+sudo yum install kudu-master                  # Kudu master init.d service script and default configuration
+sudo yum install kudu-tserver                 # Kudu tablet server init.d service script and default configuration
+sudo yum install kudu-client0                 # Kudu C++ client shared library
+sudo yum install kudu-client-devel            # Kudu C++ client SDK
+</code></pre>
+
+<p>因此,只需要安装 kudu基础包 和客户端 及sdk即可</p>
+
+<pre><code class="language-bash">yum install kudu kudu-client0 kudu-client-devel gcc -y
+yum install gcc-c++ gcc -y
+</code></pre>
+
+<h3 id="toc_2">安装kudu_python客户端</h3>
+
+<pre><code class="language-bash"># 这个依赖需要手动安装
+pip install Cython
+# 目前官方提供的C库以及我们适用的kudu是1.4版本,
+# 所以不要安装python客户端的最新版本,我试过1.2版本是兼容的
+pip install kudu_python==1.2
+</code></pre>
+
+<h3 id="toc_3">测试连接</h3>
+
+<pre><code class="language-Python">import kudu
+# 注意这里 host是kudu master的列表
+client = kudu.connect(host=[&#39;192.168.3.32&#39;,&#39;192.168.3.31&#39;], port=7051)
+# 获取表列表
+a = client.list_tables()
+# 打印列表
+print a
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-05-25T09:38:29+08:00" itemprop="datePublished">2018/5/25</time>
 			</div>
 			<div class="tags">posted in 
