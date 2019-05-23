@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	Archives - wjw'blog
+  	pyspark 2.x jupyter notebook 单机环境搭建 - wjw'blog
   	
 	</title>
 
@@ -116,149 +116,59 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-	<div itemscope itemtype="http://schema.org/Blog">
-		<section class="archives">
 
-		
-			 
-			  	<h1 style="top: auto;" class="year">2019</h1>
-			
-			
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">pyspark 2.x jupyter notebook 单机环境搭建</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2 id="toc_0">环境准备</h2>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2019-05-23T23:36:45+08:00" itemprop="datePublished">5月 23</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15586258051648.html">
-					pyspark 2.x jupyter notebook 单机环境搭建</a></h1>
-				</article>
-	 	
-			 
-			  	<h1 style="top: auto;" class="year">2018</h1>
-			
-			
+<p>安装anaconda <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a><br/>
+下载spark包 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-10-23T10:18:41+08:00" itemprop="datePublished">10月 23</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15402611211099.html">
-					一次kuduAPI查询的优化</a></h1>
-				</article>
-	 	
-			
-			
+<h2 id="toc_1">配置环境变量</h2>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-09-26T08:06:29+08:00" itemprop="datePublished">9月 26</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15379203897873.html">
-					Dart语言2.0学习</a></h1>
-				</article>
-	 	
-			
-			
+<p>将SPARK_HOME目录指向下载的spark解压后目录<br/>
+<code>export SPARK_HOME={spark目录}</code><br/>
+创建conda环境<br/>
+<code>conda create -n spark2</code><br/>
+切换到环境内<br/>
+<code>conda activate spark2</code><br/>
+安装pyspark<br/>
+<code>conda install pyspark</code><br/>
+安装jupyter<br/>
+<code>conda install jupyter</code><br/>
+设置pyspark jupyer参数<br/>
+<code>export PYSPARK_DRIVER_PYTHON_OPTS=notebook</code><br/>
+启动pyspark<br/>
+<code>pyspark</code><br/>
+执行sc可以看到默认的spark上下文</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-08-06T15:02:01+08:00" itemprop="datePublished">8月 06</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15335389211853.html">
-					在CHD5.10.2 安装kylin2.4.0</a></h1>
-				</article>
-	 	
-			
-			
+		</div>
+	</article>
+	<div class="share-comment">
+	 <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDY3NC83MjI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-07-09T14:23:41+08:00" itemprop="datePublished">7月 09</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15311174213941.html">
-					Centos7 安装kudu python客户端</a></h1>
-				</article>
-	 	
-			
-			
+       if (typeof LivereTower === 'function') { return; }
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-05-25T09:38:29+08:00" itemprop="datePublished">5月 25</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15272123098116.html">
-					关于cx_oracle TypeError: expecting string, unicode or buffer object 错误的解决</a></h1>
-				</article>
-	 	
-			
-			
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2018-05-24T08:04:36+08:00" itemprop="datePublished">5月 24</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='mweb.html'>mweb</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="15271202760078.html">
-					Macbook mds 进程占用CPU问题</a></h1>
-				</article>
-	 	
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
 
-	  </section>
+	  
+
+	  
+
 	</div>
 </div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014

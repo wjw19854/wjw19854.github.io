@@ -122,6 +122,101 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2019-05-23T23:36:45+08:00" itemprop="datePublished">2019/5/23</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='mweb.html'>mweb</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="15586258051648.html" itemprop="url">
+		pyspark 2.x jupyter notebook 单机环境搭建</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h2 id="toc_0">环境准备</h2>
+
+<p>安装anaconda <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a><br/>
+下载spark包 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
+
+<h2 id="toc_1">配置环境变量</h2>
+
+<p>将SPARK_HOME目录指向下载的spark解压后目录<br/>
+<code>export SPARK_HOME={spark目录}</code><br/>
+创建conda环境<br/>
+<code>conda create -n spark2</code><br/>
+切换到环境内<br/>
+<code>conda activate spark2</code><br/>
+安装pyspark<br/>
+<code>conda install pyspark</code><br/>
+安装jupyter<br/>
+<code>conda install jupyter</code><br/>
+设置pyspark jupyer参数<br/>
+<code>export PYSPARK_DRIVER_PYTHON_OPTS=notebook</code><br/>
+启动pyspark<br/>
+<code>pyspark</code><br/>
+执行sc可以看到默认的spark上下文</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2018-10-23T10:18:41+08:00" itemprop="datePublished">2018/10/23</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='mweb.html'>mweb</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="15402611211099.html" itemprop="url">
+		一次kuduAPI查询的优化</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<pre><code class="language-python">import kudu
+# 注意这里 host是kudu master的列表
+client = kudu.connect(host=[&#39;192.168.3.32&#39;,&#39;192.168.3.31&#39;], port=7051)
+# 获取表列表
+a = client.list_tables()
+# 打印列表
+print a
+
+table = client.table(&#39;impala::ikang_ark.m_exam_check&#39;)
+# 创建scnner
+scanner = table.scanner()
+# 查看表结构
+table.schema
+# 添加查询条件
+scanner.add_predicate(table[&#39;orderid&#39;]==47403742)
+scanner.open()
+//查询结果
+scanner.read_all_tuples()
+scanner.close()
+scanner = None
+scanner = table.scanner()
+scanner.add_predicates([table[&#39;orderid&#39;]==47403742,table[&#39;orderid&#39;]==47412164])
+scanner.open()
+scanner.read_all_tuples()
+scanner.close()
+scanner = None
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-09-26T08:06:29+08:00" itemprop="datePublished">2018/9/26</time>
 			</div>
 			<div class="tags">posted in 

@@ -4,7 +4,7 @@
   <title><![CDATA[wjw'blog]]></title>
   <link href="https://wjw19854.github.io/atom.xml" rel="self"/>
   <link href="https://wjw19854.github.io/"/>
-  <updated>2018-10-12T09:54:10+08:00</updated>
+  <updated>2019-05-23T23:44:24+08:00</updated>
   <id>https://wjw19854.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[pyspark 2.x jupyter notebook 单机环境搭建]]></title>
+    <link href="https://wjw19854.github.io/15586258051648.html"/>
+    <updated>2019-05-23T23:36:45+08:00</updated>
+    <id>https://wjw19854.github.io/15586258051648.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">环境准备</h2>
+
+<p>安装anaconda <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a><br/>
+下载spark包 <a href="http://spark.apache.org/downloads.html">http://spark.apache.org/downloads.html</a></p>
+
+<h2 id="toc_1">配置环境变量</h2>
+
+<p>将SPARK_HOME目录指向下载的spark解压后目录<br/>
+<code>export SPARK_HOME={spark目录}</code><br/>
+创建conda环境<br/>
+<code>conda create -n spark2</code><br/>
+切换到环境内<br/>
+<code>conda activate spark2</code><br/>
+安装pyspark<br/>
+<code>conda install pyspark</code><br/>
+安装jupyter<br/>
+<code>conda install jupyter</code><br/>
+设置pyspark jupyer参数<br/>
+<code>export PYSPARK_DRIVER_PYTHON_OPTS=notebook</code><br/>
+启动pyspark<br/>
+<code>pyspark</code><br/>
+执行sc可以看到默认的spark上下文</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[一次kuduAPI查询的优化]]></title>
+    <link href="https://wjw19854.github.io/15402611211099.html"/>
+    <updated>2018-10-23T10:18:41+08:00</updated>
+    <id>https://wjw19854.github.io/15402611211099.html</id>
+    <content type="html"><![CDATA[
+<pre><code class="language-python">import kudu
+# 注意这里 host是kudu master的列表
+client = kudu.connect(host=[&#39;192.168.3.32&#39;,&#39;192.168.3.31&#39;], port=7051)
+# 获取表列表
+a = client.list_tables()
+# 打印列表
+print a
+
+table = client.table(&#39;impala::ikang_ark.m_exam_check&#39;)
+# 创建scnner
+scanner = table.scanner()
+# 查看表结构
+table.schema
+# 添加查询条件
+scanner.add_predicate(table[&#39;orderid&#39;]==47403742)
+scanner.open()
+//查询结果
+scanner.read_all_tuples()
+scanner.close()
+scanner = None
+scanner = table.scanner()
+scanner.add_predicates([table[&#39;orderid&#39;]==47403742,table[&#39;orderid&#39;]==47412164])
+scanner.open()
+scanner.read_all_tuples()
+scanner.close()
+scanner = None
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dart语言2.0学习]]></title>
