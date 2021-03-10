@@ -4,7 +4,7 @@
   <title><![CDATA[wjw'blog]]></title>
   <link href="https://wjw19854.github.io/atom.xml" rel="self"/>
   <link href="https://wjw19854.github.io/"/>
-  <updated>2019-05-23T23:46:04+08:00</updated>
+  <updated>2021-03-10T15:13:57+08:00</updated>
   <id>https://wjw19854.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[redshift 锁表问题]]></title>
+    <link href="https://wjw19854.github.io/16151811534932.html"/>
+    <updated>2021-03-08T13:25:53+08:00</updated>
+    <id>https://wjw19854.github.io/16151811534932.html</id>
+    <content type="html"><![CDATA[
+<pre><code class="language-sql">-- 查询锁表的sqlid
+select pid, trim(user_name) user_name, starttime, substring(query,1,20),status
+from stv_recents a
+where 1=1
+and status=&#39;Running&#39;
+and user_name = &#39;bi_sql_executor&#39;;
+
+-- 切换到超级用户组
+set query_group to &#39;superuser&#39;;
+-- 去掉查询
+cancel 90135;
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[pyspark 2.x jupyter notebook 单机环境搭建]]></title>

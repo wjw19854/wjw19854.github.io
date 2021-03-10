@@ -122,6 +122,41 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2021-03-08T13:25:53+08:00" itemprop="datePublished">2021/3/8</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='mweb.html'>mweb</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="16151811534932.html" itemprop="url">
+		redshift 锁表问题</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<pre><code class="language-sql">-- 查询锁表的sqlid
+select pid, trim(user_name) user_name, starttime, substring(query,1,20),status
+from stv_recents a
+where 1=1
+and status=&#39;Running&#39;
+and user_name = &#39;bi_sql_executor&#39;;
+
+-- 切换到超级用户组
+set query_group to &#39;superuser&#39;;
+-- 去掉查询
+cancel 90135;
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2019-05-23T23:36:45+08:00" itemprop="datePublished">2019/5/23</time>
 			</div>
 			<div class="tags">posted in 
